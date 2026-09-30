@@ -19,7 +19,7 @@ python -m venv venv
 source venv/bin/activate
 pip install -e ".[dev,notebooks]"
 
-# 2. Run Data Pipeline 
+# 2. Run Data Pipeline
 # Open the Jupyter notebook and run all cells:
 jupyter notebook notebooks/data_pipeline.ipynb
 ```

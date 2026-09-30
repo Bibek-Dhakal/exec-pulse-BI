@@ -21,7 +21,7 @@ erDiagram
         float discount_amount
         float tax_amount
     }
-    
+
     Dim_Customer {
         string customer_id PK
         string first_name
@@ -30,7 +30,7 @@ erDiagram
         string region
         string country
     }
-    
+
     Dim_Product {
         string product_id PK
         string product_name
@@ -39,7 +39,7 @@ erDiagram
         float unit_price
         float unit_cost
     }
-    
+
     Dim_Date {
         int date_key PK
         date full_date

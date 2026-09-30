@@ -48,7 +48,7 @@ YoY Growth % = DIVIDE([Total Revenue] - [Revenue Last Year], [Revenue Last Year]
 ### Rolling 30-Day Sales
 **DAX (Power BI):**
 ```dax
-Rolling 30D Revenue = 
+Rolling 30D Revenue =
 CALCULATE(
     [Total Revenue],
     DATESINPERIOD(Dim_Date[full_date], MAX(Dim_Date[full_date]), -30, DAY)
