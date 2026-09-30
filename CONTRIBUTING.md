@@ -20,7 +20,7 @@ By participating in this project, you agree to abide by basic professional stand
    ```
 
 ## 3. Commit Guidelines (Strictly Enforced)
-This project uses automated versioning and `CHANGELOG.md` generation via Google's `release-please`. Therefore, **Conventional Commits** are strictly required. 
+This project uses automated versioning and `CHANGELOG.md` generation via Google's `release-please`. Therefore, **Conventional Commits** are strictly required.
 
 Your commit messages must be structured as follows:
 `<type>(<optional scope>): <description>`
