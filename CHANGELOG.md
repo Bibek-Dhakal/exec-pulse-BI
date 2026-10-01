@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/Bibek-Dhakal/exec-pulse-BI/compare/v0.2.0...v0.2.1) (2026-10-01)
+
+
+### Bug Fixes
+
+* **bi:** update ExecPulse dashboard layout and visuals ([a7812d2](https://github.com/Bibek-Dhakal/exec-pulse-BI/commit/a7812d2272c6e175e5553b4cf1ffd87cb265b510))
+
 ## [0.2.0](https://github.com/Bibek-Dhakal/exec-pulse-BI/compare/v0.1.0...v0.2.0) (2026-10-01)
 
 
