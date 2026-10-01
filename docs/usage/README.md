@@ -1,29 +1,43 @@
 # Usage & BI Integration Guide
 
-This guide walks you through taking the output of the data pipeline and integrating it into your BI visualization tool
-(Power BI / Tableau).
+This guide walks you through connecting the output of the data pipeline into your BI visualization tool. You can either
+use the pre-built template provided in this repository or build your own from scratch.
 
-## 1. Connecting Data to Your BI Tool
+## Option A: Using the Pre-built Power BI Dashboard (Recommended)
 
-After running `notebooks/data_pipeline.ipynb`, you will have your Star Schema output in `data/processed/`.
+We have provided a fully configured Power BI dashboard template located at **`dashboards/ExecPulse_Dashboard.pbix`**.
+Because absolute file paths differ between computers, you will need to map the dashboard to your locally generated data.
 
-**In Power BI / Tableau:**
+1. Ensure you have run `notebooks/data_pipeline.ipynb` so that your `data/processed/` folder is populated.
+2. Open `dashboards/ExecPulse_Dashboard.pbix` in Power BI Desktop.
+3. On the Home ribbon, click **Transform Data** $\rightarrow$ **Data source settings**.
+4. Select the current data source (e.g., the ODBC DSN or the CSV folder path) and click **Change Source**.
+5. Browse and point it to your local absolute path for `data/processed/execpulse_star_schema.db` (or your processed
+   CSVs).
+6. Click **Close & Apply**, then click **Refresh** on the Home ribbon.
+
+---
+
+## Option B: Connecting Data from Scratch
+
+If you prefer to map the data yourself:
 
 1. Load the 4 CSV files (one by one) directly (`Fact_Sales.csv`, `Dim_Product.csv`, `Dim_Customer.csv`, `Dim_Date.csv`)
-   into Power BI. **OR**  Connect to the SQLite Database (`execpulse_star_schema.db`) via ODBC:
+   into Power BI. **OR** Connect to the SQLite Database (`execpulse_star_schema.db`) via ODBC:
    [Loading DB file into Power BI](loading-db-file-into-power-BI.md)
 
-2. Go to the **Model View** (Power BI).
-3. Establish the 1-to-Many relationships as specified in the [Architecture ERD](../architecture/README.md).
-    * `Dim_Customer.customer_id` (1) $\rightarrow$ `Fact_Sales.customer_id` (*)
-    * `Dim_Product.product_id` (1) $\rightarrow$ `Fact_Sales.product_id` (*)
-    * `Dim_Date.date_key` (1) $\rightarrow$ `Fact_Sales.date_key` (*)
-4. **Ensure cross-filter direction is set to "Single" (filtering from Dim to Fact).**
+2. Go to the **Model View** (Power BI). By default, the points below are often auto-detected, but you should manually
+   verify:
+    - Establish the 1-to-Many relationships as specified in the [Architecture ERD](../architecture/README.md).
+        * `Dim_Customer.customer_id` (1) $\rightarrow$ `Fact_Sales.customer_id` (*)
+        * `Dim_Product.product_id` (1) $\rightarrow$ `Fact_Sales.product_id` (*)
+        * `Dim_Date.date_key` (1) $\rightarrow$ `Fact_Sales.date_key` (*)
+    - **Ensure cross-filter direction is set to "Single" (filtering from Dim to Fact).**
 
 ## 2. Recommended KPI Measures (DAX / LOD Examples)
 
-According to the system specifications, hardcoding values on the visual layer is forbidden. Use these formulas to create
-dynamic measures.
+According to the system specifications, hardcoding values on the visual layer is forbidden. If you are building from
+scratch, use these formulas to create dynamic measures. *(Note: These are already included in the pre-built `.pbix`!)*
 
 ### Total Revenue
 
@@ -73,6 +87,9 @@ CALCULATE(
 
 ## 3. Dashboard Interactivity Check
 
+When finalizing your visualization, verify the following:
+
 - Ensure that clicking on a "Product Category" in a Bar Chart accurately cross-filters the Time Series and KPI Summary
   Cards.
-- Verification threshold: Load latency must remain $< 3\text{ seconds}$ upon slicer selections.
+- Verification threshold: Load latency must remain $< 3\text{ seconds}$ upon slicer selections. The Star Schema ensures
+  this is effortlessly achieved.
