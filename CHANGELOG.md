@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.3.0](https://github.com/Bibek-Dhakal/exec-pulse-BI/compare/v0.2.0...v0.3.0) (2026-10-02)
+
+
+### Features
+
+* **bi:** add pre-configured Power BI dashboard ([0ff12e2](https://github.com/Bibek-Dhakal/exec-pulse-BI/commit/0ff12e2b8d7118cda9ed49fbc48c6e9c0ac0c135))
+* **core:** initialize ExecPulse-BI project with star-schema pipeline and docs ([e4b9e04](https://github.com/Bibek-Dhakal/exec-pulse-BI/commit/e4b9e04ebb32307cc9e3adb897bd4feed69b057a))
+
+
+### Bug Fixes
+
+* **bi:** update ExecPulse dashboard layout and visuals ([d3e2468](https://github.com/Bibek-Dhakal/exec-pulse-BI/commit/d3e24683d20466a08715099cb7fb0567273db400))
+* **build:** add src and tests directories to resolve hatchling editable installation error ([e098d22](https://github.com/Bibek-Dhakal/exec-pulse-BI/commit/e098d229ec75003f66fe817edd5b4620dc4df8d6))
+
+
+### Documentation
+
+* add Power BI SQLite ODBC guide and refine usage documentation ([b6a7eef](https://github.com/Bibek-Dhakal/exec-pulse-BI/commit/b6a7eef511a07442fd59481fe52a1d3612005022))
+* **bi:** add dashboard directory and update guides for pbix inclusion ([3e9768c](https://github.com/Bibek-Dhakal/exec-pulse-BI/commit/3e9768cf8c1af7e6d34ea502be61d6ef7e702167))
+
 ## [0.2.0](https://github.com/Bibek-Dhakal/exec-pulse-BI/compare/v0.1.0...v0.2.0) (2026-10-01)
 
 
